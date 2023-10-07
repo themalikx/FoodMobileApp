@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-avatar slot="start">
+      <ion-img [src]="user.profilePicture" alt="User Avatar"></ion-img>
+      <input type="file" accept="image/*" (change)="uploadProfilePicture($event)">
+    </ion-avatar>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Name</ion-label>
+    <ion-input [(ngModel)]="user.name" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input [(ngModel)]="user.email" type="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Phone Number</ion-label>
+    <ion-input [(ngModel)]="user.phoneNumber" type="tel"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Current Password</ion-label>
+    <ion-input [(ngModel)]="currentPassword" type="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">New Password</ion-label>
+    <ion-input [(ngModel)]="newPassword" type="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Confirm New Password</ion-label>
+    <ion-input [(ngModel)]="confirmNewPassword" type="password"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="saveChanges()">Save Changes</ion-button>
+</ion-content>

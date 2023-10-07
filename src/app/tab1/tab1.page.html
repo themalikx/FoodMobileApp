@@ -1,6 +1,12 @@
 <ion-header [translucent]="true">
- 
+  <!-- Header content goes here -->
 </ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Main content of the tab1 page goes here -->
+</ion-content>
+
+
 
 <ion-app>
   <ion-menu contentId="main-content">
@@ -9,8 +15,90 @@
         <ion-title>Menu Content</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">This is the menu content.</ion-content>
+    <ion-content class="ion-padding">
+      <!-- User Account and Profile -->
+      <ion-list>
+        <ion-item>
+          <ion-avatar slot="start">
+            <ion-img src="assets/user-avatar.jpg" alt="User Avatar"></ion-img>
+          </ion-avatar>
+          <ion-label>
+            <h2 style="font-size: 20px; margin-bottom: 5px;">John Doe</h2>
+            <ion-button fill="clear" style="font-weight: bold;" (click)="goToEditProfilePage()">
+              Edit Profile
+            </ion-button>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      
+      
+
+      <!-- Ordering Features -->
+      <ion-list>
+        <ion-item routerLink="/restaurants">
+          <ion-label>Browse Restaurants</ion-label>
+        </ion-item>
+        <ion-item routerLink="/cart">
+          <ion-label>View Cart</ion-label>
+        </ion-item>
+        <!-- Add more ordering features here -->
+      </ion-list>
+
+      <!-- Payment and Wallet -->
+      <ion-list>
+        <ion-item routerLink="/payment">
+          <ion-label>Payment Methods</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Wallet Balance: $50.00</ion-label>
+        </ion-item>
+        <!-- Add more payment features here -->
+      </ion-list>
+
+      <!-- Favorite and Saved Items -->
+      <ion-list>
+        <ion-item routerLink="/favorites">
+          <ion-label>Saved Favorites</ion-label>
+        </ion-item>
+        <!-- Add more favorite and saved item features here -->
+      </ion-list>
+
+      <!-- Notifications and Alerts -->
+      <ion-list>
+        <ion-item routerLink="/notifications">
+          <ion-label>Notifications</ion-label>
+        </ion-item>
+        <!-- Add more notification features here -->
+      </ion-list>
+
+      <!-- Settings and Preferences -->
+      <ion-list>
+        <ion-item routerLink="/settings">
+          <ion-label>Settings</ion-label>
+        </ion-item>
+        <!-- Add more settings features here -->
+      </ion-list>
+
+      <!-- Help and Support -->
+      <ion-list>
+        <ion-item routerLink="/faq">
+          <ion-label>FAQ</ion-label>
+        </ion-item>
+        <ion-item routerLink="/contact-support">
+          <ion-label>Contact Support</ion-label>
+        </ion-item>
+        <!-- Add more support features here -->
+      </ion-list>
+
+      <!-- Log Out -->
+      <ion-list>
+        <ion-item (click)="logout()">
+          <ion-label>Log Out</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
   </ion-menu>
+  
   <div class="ion-page" id="main-content">
     <ion-header>
       <ion-toolbar>
@@ -21,7 +109,33 @@
       </ion-toolbar>
       <ion-searchbar></ion-searchbar>
     </ion-header>
-    <ion-content class="ion-padding"></ion-content>
-    <ion-img src="assets/splash.jpg" alt="Splash Image"></ion-img>
+    <ion-content class="ion-padding">
+      <!-- Main content of the menu page goes here -->
+    </ion-content>
   </div>
 </ion-app>
+
+<!-- 
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="tab-home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label> 
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab-menu">
+      <ion-icon name="restaurant"></ion-icon>
+      <ion-label>Menu</ion-label> 
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab-cart">
+      <ion-icon name="cart"></ion-icon>
+      <ion-label>Cart</ion-label> 
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab-account">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Account</ion-label> 
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs> -->

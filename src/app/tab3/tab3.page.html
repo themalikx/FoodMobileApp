@@ -1,17 +1,26 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
     <ion-title>
-      Tab 3
+      Cart
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item *ngFor="let item of cartItems">
+      <ion-label>{{ item.name }}</ion-label>
+      <ion-label slot="end">$ {{ item.price }}</ion-label>
+      <ion-button slot="end" (click)="removeItemFromCart(item)">Remove</ion-button>
+    </ion-item>
+  </ion-list>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <div class="total-amount">
+    Total: $ {{ totalAmount }}
+  </div>
+
+  <ion-button expand="full" color="primary" (click)="checkout()">Checkout</ion-button>
 </ion-content>

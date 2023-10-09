@@ -1,13 +1,39 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>cart</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cart</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cart</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <!-- Display Cart Items -->
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of cartItems">
+      <ion-item>
+        <!-- Display Item Details -->
+        <ion-thumbnail slot="start">
+          <ion-img [src]="item.imageUrl" alt="Item Image"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ item.name }}</h2>
+          <p>Price: ${{ item.price }}</p>
+        </ion-label>
+      </ion-item>
+      <!-- Display Quantity and Remove Button -->
+      <ion-item-options side="end">
+        <ion-item-option (click)="removeItem(item)">Remove</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!-- Display Total Amount -->
+  <ion-item>
+    <ion-label>Total:</ion-label>
+    <ion-label class="total-amount">${{ calculateTotal() }}</ion-label>
+  </ion-item>
+
+  <!-- Proceed to Checkout Button -->
+  <ion-button expand="full" (click)="proceedToCheckout()">Proceed to Checkout</ion-button>
 </ion-content>

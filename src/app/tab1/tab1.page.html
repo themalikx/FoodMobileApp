@@ -20,7 +20,7 @@
       <ion-list>
         <ion-item>
           <ion-avatar slot="start">
-            <ion-img src="assets/user-avatar.jpg" alt="User Avatar"></ion-img>
+            <ion-img [src]="user.profilePicture" alt="User Avatar"></ion-img>
           </ion-avatar>
           <ion-label>
             <h2 style="font-size: 20px; margin-bottom: 5px;">John Doe</h2>
@@ -35,7 +35,7 @@
 
       <!-- Ordering Features -->
       <ion-list>
-        <ion-item routerLink="/restaurants">
+        <ion-item routerLink="/browse-restaurants">
           <ion-label>Browse Restaurants</ion-label>
         </ion-item>
         <ion-item routerLink="/cart">
@@ -46,11 +46,12 @@
 
       <!-- Payment and Wallet -->
       <ion-list>
-        <ion-item routerLink="/payment">
+        <ion-item routerLink="/payment-methods">
           <ion-label>Payment Methods</ion-label>
         </ion-item>
-        <ion-item>
-          <ion-label>Wallet Balance: $50.00</ion-label>
+        <ion-item routerLink="/wallet">
+          <ion-icon name="wallet"></ion-icon>
+          <ion-label>Wallet</ion-label>
         </ion-item>
         <!-- Add more payment features here -->
       </ion-list>
@@ -115,27 +116,3 @@
   </div>
 </ion-app>
 
-<!-- 
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="tab-home">
-      <ion-icon name="home"></ion-icon>
-      <ion-label>Home</ion-label> 
-    </ion-tab-button>
-
-    <ion-tab-button tab="tab-menu">
-      <ion-icon name="restaurant"></ion-icon>
-      <ion-label>Menu</ion-label> 
-    </ion-tab-button>
-
-    <ion-tab-button tab="tab-cart">
-      <ion-icon name="cart"></ion-icon>
-      <ion-label>Cart</ion-label> 
-    </ion-tab-button>
-
-    <ion-tab-button tab="tab-account">
-      <ion-icon name="person"></ion-icon>
-      <ion-label>Account</ion-label> 
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs> -->

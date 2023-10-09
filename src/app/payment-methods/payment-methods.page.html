@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Add a back navigation arrow to the Home page -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Payment Methods
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let method of paymentMethods">
+      <ion-label>{{ method.cardType }} ending in {{ method.lastFourDigits }}</ion-label>
+      <ion-button slot="end" (click)="deletePaymentMethod(method)">Delete</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Add a button to add a new payment method -->
+  <ion-button expand="full" color="primary" (click)="addPaymentMethod()">Add Payment Method</ion-button>
+</ion-content>

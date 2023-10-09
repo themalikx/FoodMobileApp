@@ -37,8 +37,21 @@ export class EditProfilePage {
   }
 
   uploadProfilePicture(event: any) {
-    // Implement logic to handle file upload (as shown in previous responses)
+    const file = event.target.files[0]; // Get the selected file
+  
+    if (file && event.target) {
+      // Read the selected file as a data URL and update the profile picture
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        if (e.target) {
+          this.user.profilePicture = e.target.result as string;
+        }
+      };
+      reader.readAsDataURL(file);
+    }
   }
+  
+  
 
   async saveChanges() {
     // Basic validation: Check if all fields are filled
@@ -46,6 +59,10 @@ export class EditProfilePage {
       this.presentToast('Please fill in all required fields.');
       return;
     }
+
+    this.navCtrl.navigateBack('/tabs/tab1', {
+      state: { updatedUser: this.user }
+    });
 
     // Email format validation
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;

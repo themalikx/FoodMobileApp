@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Browse Restaurants</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Search bar -->
+  <ion-searchbar
+    [(ngModel)]="searchText"
+    (ionChange)="onSearchChange()"
+    placeholder="Search for restaurants"
+  ></ion-searchbar>
+
+  <!-- Filters -->
+  <ion-card>
+    <ion-card-header>
+      Filters
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Cuisine filter -->
+      <ion-item>
+        <ion-label>Cuisine</ion-label>
+        <ion-select [(ngModel)]="selectedCuisine" (ionChange)="onFilterChange()">
+          <ion-select-option value="">All Cuisines</ion-select-option>
+          <ion-select-option value="italian">Italian</ion-select-option>
+          <ion-select-option value="mexican">Mexican</ion-select-option>
+          <!-- Add more cuisine options here -->
+        </ion-select>
+      </ion-item>
+
+      <!-- Rating filter -->
+      <ion-item>
+        <ion-label>Rating</ion-label>
+        <ion-select [(ngModel)]="selectedRating" (ionChange)="onFilterChange()">
+          <ion-select-option value="">Any Rating</ion-select-option>
+          <ion-select-option value="5">5 stars</ion-select-option>
+          <ion-select-option value="4">4 stars and up</ion-select-option>
+          <!-- Add more rating options here -->
+        </ion-select>
+      </ion-item>
+
+      <!-- Location filter -->
+      <ion-item>
+        <ion-label>Location</ion-label>
+        <ion-select [(ngModel)]="selectedLocation" (ionChange)="onFilterChange()">
+          <ion-select-option value="">All Locations</ion-select-option>
+          <ion-select-option value="downtown">Downtown</ion-select-option>
+          <ion-select-option value="suburbs">Suburbs</ion-select-option>
+          <!-- Add more location options here -->
+        </ion-select>
+      </ion-item>
+
+      <!-- Add more filters as needed -->
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Restaurant listings -->
+  <ion-list *ngFor="let restaurant of filteredRestaurants">
+    <!-- Restaurant details here -->
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <ion-img [src]="restaurant.image"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ restaurant.name }}</h2>
+        <p>Cuisine: {{ restaurant.cuisine }}</p>
+        <p>Rating: {{ restaurant.rating }} stars</p>
+        <p>Delivery Time: {{ restaurant.deliveryTime }} mins</p>
+      </ion-label>
+      <ion-button fill="clear" slot="end" (click)="viewRestaurantDetails(restaurant)">
+        View Details
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

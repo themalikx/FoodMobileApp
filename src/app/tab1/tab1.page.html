@@ -6,8 +6,6 @@
   <!-- Main content of the tab1 page goes here -->
 </ion-content>
 
-
-
 <ion-app>
   <ion-menu contentId="main-content">
     <ion-header>
@@ -30,18 +28,18 @@
           </ion-label>
         </ion-item>
       </ion-list>
-      
-      
 
       <!-- Ordering Features -->
       <ion-list>
         <ion-item routerLink="/browse-restaurants">
           <ion-label>Browse Restaurants</ion-label>
         </ion-item>
+      </ion-list>
+
+      <ion-list>
         <ion-item routerLink="/cart">
           <ion-label>View Cart</ion-label>
         </ion-item>
-        <!-- Add more ordering features here -->
       </ion-list>
 
       <!-- Payment and Wallet -->
@@ -49,19 +47,19 @@
         <ion-item routerLink="/payment-methods">
           <ion-label>Payment Methods</ion-label>
         </ion-item>
+      </ion-list>
+
+      <ion-list>
         <ion-item routerLink="/wallet">
-          <ion-icon name="wallet"></ion-icon>
           <ion-label>Wallet</ion-label>
         </ion-item>
-        <!-- Add more payment features here -->
       </ion-list>
 
       <!-- Favorite and Saved Items -->
       <ion-list>
-        <ion-item routerLink="/favorites">
+        <ion-item routerLink="/saved-favorites">
           <ion-label>Saved Favorites</ion-label>
         </ion-item>
-        <!-- Add more favorite and saved item features here -->
       </ion-list>
 
       <!-- Notifications and Alerts -->
@@ -69,7 +67,6 @@
         <ion-item routerLink="/notifications">
           <ion-label>Notifications</ion-label>
         </ion-item>
-        <!-- Add more notification features here -->
       </ion-list>
 
       <!-- Settings and Preferences -->
@@ -77,7 +74,6 @@
         <ion-item routerLink="/settings">
           <ion-label>Settings</ion-label>
         </ion-item>
-        <!-- Add more settings features here -->
       </ion-list>
 
       <!-- Help and Support -->
@@ -85,15 +81,17 @@
         <ion-item routerLink="/faq">
           <ion-label>FAQ</ion-label>
         </ion-item>
+      </ion-list>
+
+      <ion-list>
         <ion-item routerLink="/contact-support">
           <ion-label>Contact Support</ion-label>
         </ion-item>
-        <!-- Add more support features here -->
       </ion-list>
 
       <!-- Log Out -->
       <ion-list>
-        <ion-item (click)="logout()">
+        <ion-item routerLink="/logout">
           <ion-label>Log Out</ion-label>
         </ion-item>
       </ion-list>
@@ -115,4 +113,3 @@
     </ion-content>
   </div>
 </ion-app>
-

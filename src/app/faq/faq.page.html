@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Add a back button that navigates to the home page -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      FAQs
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngFor="let faq of faqs">
+    <ion-card-header>
+      <h2 class="font-weight-bold">{{ faq.question }}</h2>
+    </ion-card-header>
+    <ion-card-content [innerHTML]="faq.answer"></ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+
